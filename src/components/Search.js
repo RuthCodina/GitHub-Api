@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
+import Errors from "./Errors";
 
 export function Search() {
   const [name, setName] = useState("");
   const [data, setData] = useState([]);
   const [get, setGet] = useState(false);
+  const [err, setErr] = useState(null);
 
   function handleName(e) {
     setName(e.target.value);
   }
 
   useEffect(() => {
-    setGet(false)
+    setGet(false);
   }, [name]);
 
   async function onSearch(name) {
@@ -34,6 +36,7 @@ export function Search() {
       }
     } catch (err) {
       console.log(err);
+      setErr(err);
     }
   }
 
@@ -58,6 +61,7 @@ export function Search() {
         </div>
       </div>
       {data === [] ? null : <Pagination name={name} data={data} get={get} />}
+      {err && <Errors msg={err} />}
     </div>
   );
 }

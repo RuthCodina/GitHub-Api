@@ -99,7 +99,6 @@ export function Pagination({ name, data, get }) {
     fetch(`https://api.github.com/search/users?q=${name}+in%3Afullname&type=Users`)
       .then((res) => res.json())
       .then((json) => setProfiles(json.items));
-    console.log(profiles);
   }, [name]);
 
 

@@ -43,7 +43,9 @@ export function ProfileDetails() {
           <h3 className="text-center">
             Github location is {data.location ? data.location : "Undefined"}
           </h3>
-          <h3 className="text-center">His/Her stack is {data.bio? data.bio : 'Undefined'}</h3>
+          <h3 className="text-center">
+            His/Her stack is {data.bio ? data.bio : "Undefined"}
+          </h3>
           <h3 className="text-center">
             Created his/her Github account in{" "}
             {data.created_at && data.created_at.slice(0, 10)}
